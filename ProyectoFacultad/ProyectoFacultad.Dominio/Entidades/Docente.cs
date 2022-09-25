@@ -6,19 +6,17 @@ using System.Threading.Tasks;
 
 namespace ProyectoFacultad.Dominio.Entidades
 {
-    public sealed class Bedel : Empleado
+    public sealed class Docente : Empleado
     {
         //Atributos
-        protected string _apodo;
 
         //Constructores
-        public Bedel(string apellido, DateTime fechaNac, string nombre, DateTime fechaIngreso, int legajo, string apodo) : base(apellido, fechaNac, nombre, fechaIngreso, legajo)
+        public Docente(string apellido, DateTime fechaNac, string nombre, DateTime fechaIngreso, int legajo) : base(apellido, fechaNac, nombre, fechaIngreso, legajo)
         {
-            _apodo = apodo;
+
         }
 
         //Propiedades
-        public string Apodo { get => _apodo; }
 
         //Funciones-Métodos
         public new string GetNombreCompleto()
@@ -26,7 +24,7 @@ namespace ProyectoFacultad.Dominio.Entidades
             //Declaración de variables
             string nombreCompleto;
 
-            nombreCompleto = "Bedel: " + Apodo;
+            nombreCompleto = "Docente: " + Nombre;
 
             return nombreCompleto;
         }

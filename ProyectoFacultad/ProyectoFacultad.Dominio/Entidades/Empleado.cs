@@ -45,14 +45,70 @@ namespace ProyectoFacultad.Dominio.Entidades
 
         public override bool Equals(Object obj)
         {
-            if(obj == Legajo)
+            if(obj == null)
             {
                 return false;
             }
+            else if (obj is Empleado)
+            {
+                Empleado emp = (Empleado)obj;
+
+                foreach(Facultad empleado in _empleados)
+                {
+                    if (_empleados.Legajo == emp.Legajo)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+            }
             else
             {
-                return true;
+                return false;
             }
+
+            return false;
+        }
+
+        public new string GetCredencial()
+        {
+            //Declaración de variables
+            string _nombreCompleto;
+
+            _nombreCompleto = GetNombreCompleto();
+
+            return string.Format(
+                "Legajo: {0}" + Environment.NewLine +
+                "Nombre completo: {1}" + Environment.NewLine +
+                "Salario: {2}" + Environment.NewLine,
+                Legajo,
+                _nombreCompleto,
+                UltimoSalario
+                )
+                ;
+        }
+
+        public override string ToString()
+        {
+            //Declaración de variables
+            string resultado;
+
+            resultado = GetCredencial();
+
+            return resultado;
+        }
+
+        public new string GetNombreCompleto()
+        {
+            //Declaración de variables
+            string nombreCompleto;
+
+            nombreCompleto = Nombre + " " + Apellido;
+
+            return nombreCompleto;
         }
     }
 }

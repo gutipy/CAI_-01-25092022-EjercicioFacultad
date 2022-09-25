@@ -13,6 +13,7 @@ namespace ProyectoFacultad.Dominio.Entidades
         private string _codigoTransferencia;
         private double _descuentos;
         private DateTime _fecha;
+        private double _neto;
 
         //Constructores
         public Salario(double bruto, string codigoTransferencia)
@@ -20,6 +21,8 @@ namespace ProyectoFacultad.Dominio.Entidades
             _bruto = bruto;
             _codigoTransferencia = codigoTransferencia;
             _fecha = DateTime.Now;
+            _descuentos = 0.17;
+            _neto = bruto * (1 - _descuentos);
         }
 
         //Propiedades
