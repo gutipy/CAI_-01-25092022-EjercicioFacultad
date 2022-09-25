@@ -1,0 +1,2 @@
+D:\Documents\GitHub\CAI_-01-25092022-EjercicioFacultad\ProyectoFacultad\ProyectoFacultad.Dominio\obj\Debug\ProyectoFacultad.Dominio.csproj.AssemblyReference.cache
+D:\Documents\GitHub\CAI_-01-25092022-EjercicioFacultad\ProyectoFacultad\ProyectoFacultad.Dominio\obj\Debug\ProyectoFacultad.Dominio.csproj.CoreCompileInputs.cache
