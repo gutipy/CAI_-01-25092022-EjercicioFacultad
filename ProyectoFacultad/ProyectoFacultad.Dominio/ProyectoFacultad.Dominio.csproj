@@ -49,10 +49,12 @@
     <Compile Include="Entidades\Facultad.cs" />
     <Compile Include="Entidades\Persona.cs" />
     <Compile Include="Entidades\Salario.cs" />
+    <Compile Include="Excepciones\AlumnoInexistenteException.cs" />
+    <Compile Include="Excepciones\EmpleadoInexistenteException.cs" />
+    <Compile Include="Excepciones\ListaVaciaException.cs" />
+    <Compile Include="Excepciones\NombreInexistenteException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Excepciones\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

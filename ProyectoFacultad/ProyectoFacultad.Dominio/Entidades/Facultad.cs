@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
+using ProyectoFacultad.Dominio.Excepciones;
 
 namespace ProyectoFacultad.Dominio.Entidades
 {
@@ -32,7 +34,7 @@ namespace ProyectoFacultad.Dominio.Entidades
         //Método para agregar alumno mediante el pasaje del objeto
         public void AgregarAlumno(Alumno alumno)
         {
-            if(_alumnos.Count == 0)
+            if (_alumnos.Count == 0)
             {
                 throw new ListaVaciaException("Alumnos");
             }
@@ -99,7 +101,103 @@ namespace ProyectoFacultad.Dominio.Entidades
             }
             else
             {
-                _alumnos.RemoveAll(C => C.Codigo == codigoAlumno);
+                _alumnos.RemoveAll(A => A.Codigo == codigoAlumno);
+            }
+        }
+
+        public void EliminarEmpleado(int legajoEmpleado)
+        {
+            if (_empleados.Find(E => E.Legajo == legajoEmpleado) == null)
+            {
+                throw new EmpleadoInexistenteException(legajoEmpleado);
+            }
+            else
+            {
+                _empleados.RemoveAll(E => E.Legajo == legajoEmpleado);
+            }
+        }
+
+        public void ModificarEmpleado(Empleado empleadoModificado)
+        {
+            Empleado original = _empleados.FirstOrDefault(e => e.Legajo == empleadoModificado.Legajo);
+
+            _empleados.Remove(original);
+
+            _empleados.Add(empleadoModificado);
+        }
+
+        public List<Alumno> TraerAlumnos()
+        {
+            //Declaración de lista
+            List<Alumno> _alumnosFacultad = new List<Alumno>();
+
+            foreach (Alumno a in _alumnos)
+            {
+                _alumnosFacultad.Add(a);
+            }
+
+            if (_alumnosFacultad.Count == 0)
+            {
+                throw new ListaVaciaException("Alumnos");
+            }
+
+            return _alumnosFacultad;
+        }
+
+        public Empleado TraerEmpleadoPorLegajo(int legajoEmpleado)
+        {
+            //Declaración de variables
+            Empleado empleadoResultado = null;
+
+            foreach (Empleado e in _empleados)
+            {
+                if (e.Legajo == legajoEmpleado)
+                {
+                    empleadoResultado = e;
+                }
+            }
+
+            return empleadoResultado;
+        }
+
+        public List<Empleado> TraerEmpleados()
+        {
+            //Declaración de lista
+            List<Empleado> _empleadosFacultad = new List<Empleado>();
+
+            foreach (Empleado e in _empleados)
+            {
+                _empleadosFacultad.Add(e);
+            }
+
+            if (_empleadosFacultad.Count == 0)
+            {
+                throw new ListaVaciaException("Empleados");
+            }
+
+            return _empleadosFacultad;
+        }
+
+        public List<Empleado> TraerEmpleadosPorNombre(string nombreEmpleado)
+        {
+            //Declaración de lista
+            List<Empleado> _empleadosFacultad = new List<Empleado>();
+
+            foreach (Empleado e in _empleados)
+            {
+                if (e.Nombre == nombreEmpleado)
+                {
+                    _empleadosFacultad.Add(e);
+                }
+            }
+
+            if (_empleadosFacultad.Count == 0)
+            {
+                throw new NombreInexistenteException(nombreEmpleado);
+            }
+            else
+            {
+                return _empleadosFacultad;
             }
         }
     }

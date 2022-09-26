@@ -28,4 +28,5 @@ namespace ProyectoFacultad.Dominio.Entidades
 
             return nombreCompleto;
         }
+    }
 }
