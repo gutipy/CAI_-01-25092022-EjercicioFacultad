@@ -1,0 +1,11 @@
+D:\Documents\GitHub\CAI_-01-25092022-EjercicioFacultad\ProyectoFacultad\ProyectoFacultad.InterfazGrafica\obj\Debug\ProyectoFacultad.InterfazGrafica.csproj.AssemblyReference.cache
+D:\Documents\GitHub\CAI_-01-25092022-EjercicioFacultad\ProyectoFacultad\ProyectoFacultad.InterfazGrafica\obj\Debug\ProyectoFacultad.InterfazGrafica.csproj.SuggestedBindingRedirects.cache
+D:\Documents\GitHub\CAI_-01-25092022-EjercicioFacultad\ProyectoFacultad\ProyectoFacultad.InterfazGrafica\obj\Debug\ProyectoFacultad.InterfazGrafica.csproj.CoreCompileInputs.cache
+D:\Documents\GitHub\CAI_-01-25092022-EjercicioFacultad\ProyectoFacultad\ProyectoFacultad.InterfazGrafica\bin\Debug\ProyectoFacultad.InterfazGrafica.exe.config
+D:\Documents\GitHub\CAI_-01-25092022-EjercicioFacultad\ProyectoFacultad\ProyectoFacultad.InterfazGrafica\bin\Debug\ProyectoFacultad.InterfazGrafica.exe
+D:\Documents\GitHub\CAI_-01-25092022-EjercicioFacultad\ProyectoFacultad\ProyectoFacultad.InterfazGrafica\bin\Debug\ProyectoFacultad.InterfazGrafica.pdb
+D:\Documents\GitHub\CAI_-01-25092022-EjercicioFacultad\ProyectoFacultad\ProyectoFacultad.InterfazGrafica\bin\Debug\ProyectoFacultad.Dominio.dll
+D:\Documents\GitHub\CAI_-01-25092022-EjercicioFacultad\ProyectoFacultad\ProyectoFacultad.InterfazGrafica\bin\Debug\ProyectoFacultad.Dominio.pdb
+D:\Documents\GitHub\CAI_-01-25092022-EjercicioFacultad\ProyectoFacultad\ProyectoFacultad.InterfazGrafica\obj\Debug\ProyectoFacultad.InterfazGrafica.csproj.CopyComplete
+D:\Documents\GitHub\CAI_-01-25092022-EjercicioFacultad\ProyectoFacultad\ProyectoFacultad.InterfazGrafica\obj\Debug\ProyectoFacultad.InterfazGrafica.exe
+D:\Documents\GitHub\CAI_-01-25092022-EjercicioFacultad\ProyectoFacultad\ProyectoFacultad.InterfazGrafica\obj\Debug\ProyectoFacultad.InterfazGrafica.pdb

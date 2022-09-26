@@ -22,7 +22,7 @@ namespace ProyectoFacultad.Dominio.Entidades
         public string Credencial { get => ToString(); }
 
         //Funciones-Metodos
-        public string GetCredencial()
+        public new string GetCredencial()
         {
             return string.Format(
                 "Código: {0}" + Environment.NewLine +

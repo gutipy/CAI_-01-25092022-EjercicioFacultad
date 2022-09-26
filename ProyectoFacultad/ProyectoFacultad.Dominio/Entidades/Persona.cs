@@ -30,12 +30,27 @@ namespace ProyectoFacultad.Dominio
         //Funciones-Métodos
         public string GetCredencial()
         {
-
+            return string.Format(
+                "Apellido: {0}" + Environment.NewLine +
+                "Nombre: {1}" + Environment.NewLine +
+                "Fecha de nacimiento: {2}" + Environment.NewLine,
+                "Edad: {3}" + Environment.NewLine,
+                Apellido,
+                Nombre,
+                FechaNac,
+                Edad
+                )
+                ;
         }
 
         public string GetNombreCompleto()
         {
+            //Declaración de variables
+            string nombreCompleto;
 
+            nombreCompleto = Nombre + " " + Apellido;
+
+            return nombreCompleto;
         }
     }
 }

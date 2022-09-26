@@ -1,2 +1,6 @@
 D:\Documents\GitHub\CAI_-01-25092022-EjercicioFacultad\ProyectoFacultad\ProyectoFacultad.Dominio\obj\Debug\ProyectoFacultad.Dominio.csproj.AssemblyReference.cache
 D:\Documents\GitHub\CAI_-01-25092022-EjercicioFacultad\ProyectoFacultad\ProyectoFacultad.Dominio\obj\Debug\ProyectoFacultad.Dominio.csproj.CoreCompileInputs.cache
+D:\Documents\GitHub\CAI_-01-25092022-EjercicioFacultad\ProyectoFacultad\ProyectoFacultad.Dominio\bin\Debug\ProyectoFacultad.Dominio.dll
+D:\Documents\GitHub\CAI_-01-25092022-EjercicioFacultad\ProyectoFacultad\ProyectoFacultad.Dominio\bin\Debug\ProyectoFacultad.Dominio.pdb
+D:\Documents\GitHub\CAI_-01-25092022-EjercicioFacultad\ProyectoFacultad\ProyectoFacultad.Dominio\obj\Debug\ProyectoFacultad.Dominio.dll
+D:\Documents\GitHub\CAI_-01-25092022-EjercicioFacultad\ProyectoFacultad\ProyectoFacultad.Dominio\obj\Debug\ProyectoFacultad.Dominio.pdb

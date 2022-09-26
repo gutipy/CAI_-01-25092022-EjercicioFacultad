@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ProyectoFacultad.Dominio.Entidades;
+using ProyectoFacultad.Dominio.Excepciones;
 
 namespace ProyectoFacultad.Dominio.Entidades
 {
@@ -43,35 +44,33 @@ namespace ProyectoFacultad.Dominio.Entidades
             }
         }
 
-        public override bool Equals(Object obj)
-        {
-            if(obj == null)
-            {
-                return false;
-            }
-            else if (obj is Empleado)
-            {
-                Empleado emp = (Empleado)obj;
+        //public override bool Equals(Object obj)
+        //{
+        //    if(obj == null)
+        //    {
+        //        return false;
+        //    }
+        //    else if (obj is Empleado)
+        //    {
+        //        Empleado emp = (Empleado)obj;
 
-                foreach(Facultad empleado in _empleados)
-                {
-                    if (_empleados.Legajo == emp.Legajo)
-                    {
-                        return true;
-                    }
-                    else
-                    {
-                        return false;
-                    }
-                }
-            }
-            else
-            {
-                return false;
-            }
-
-            return false;
-        }
+        //        foreach(Facultad e in _empleados)
+        //        {
+        //            if (e.Legajo == emp.Legajo)
+        //            {
+        //                return true;
+        //            }
+        //            else
+        //            {
+        //                return false;
+        //            }
+        //        }
+        //    }
+        //    else
+        //    {
+        //        return false;
+        //    }
+        //}
 
         public new string GetCredencial()
         {

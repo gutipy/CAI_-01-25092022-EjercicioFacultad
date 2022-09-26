@@ -34,14 +34,7 @@ namespace ProyectoFacultad.Dominio.Entidades
         //Método para agregar alumno mediante el pasaje del objeto
         public void AgregarAlumno(Alumno alumno)
         {
-            if (_alumnos.Count == 0)
-            {
-                throw new ListaVaciaException("Alumnos");
-            }
-            else
-            {
-                _alumnos.Add(alumno);
-            }
+            _alumnos.Add(alumno);
         }
 
         //Método para agregar alumno mediante el pasaje del los inputs
@@ -55,14 +48,7 @@ namespace ProyectoFacultad.Dominio.Entidades
         //Método para agregar empleado mediante el pasaje del objeto
         public void AgregarEmpleado(Empleado empleado)
         {
-            if (_empleados.Count == 0)
-            {
-                throw new ListaVaciaException("Empleados");
-            }
-            else
-            {
-                _empleados.Add(empleado);
-            }
+            _empleados.Add(empleado);
         }
 
         //Método para agregar empleado mediante el pasaje del los inputs
@@ -199,6 +185,48 @@ namespace ProyectoFacultad.Dominio.Entidades
             {
                 return _empleadosFacultad;
             }
+        }
+
+        public string ValidarEmpleado(int legajoEmpleado)
+        {
+            //Declaración de variables
+            string _resultado = "";
+
+            foreach (Empleado e in _empleados)
+            {
+                if (e.Legajo == legajoEmpleado)
+                {
+                    _resultado = "El legajo " + legajoEmpleado + " existe y corresponde a " + e.Nombre + " " + e.Apellido;
+                }
+            }
+
+            if (string.IsNullOrEmpty(_resultado))
+            {
+                _resultado = "El legajo " + legajoEmpleado + " no corresponde a ningún empleado de la facultad";
+            }
+
+            return _resultado;
+        }
+
+        public string ValidarAlumno(int codigoAlumno)
+        {
+            //Declaración de variables
+            string _resultado = "";
+
+            foreach (Alumno a in _alumnos)
+            {
+                if (a.Codigo == codigoAlumno)
+                {
+                    _resultado = "El codigo de alumno " + codigoAlumno + " existe y corresponde a " + a.Nombre + " " + a.Apellido;
+                }
+            }
+
+            if (string.IsNullOrEmpty(_resultado))
+            {
+                _resultado = "El codigo de alumno " + codigoAlumno + " no corresponde a ningún alumno de la facultad";
+            }
+
+            return _resultado;
         }
     }
 }

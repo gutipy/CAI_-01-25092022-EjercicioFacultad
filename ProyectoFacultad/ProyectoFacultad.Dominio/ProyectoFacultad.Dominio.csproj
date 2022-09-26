@@ -53,6 +53,7 @@
     <Compile Include="Excepciones\EmpleadoInexistenteException.cs" />
     <Compile Include="Excepciones\ListaVaciaException.cs" />
     <Compile Include="Excepciones\NombreInexistenteException.cs" />
+    <Compile Include="Excepciones\SalarioNegativoException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />
