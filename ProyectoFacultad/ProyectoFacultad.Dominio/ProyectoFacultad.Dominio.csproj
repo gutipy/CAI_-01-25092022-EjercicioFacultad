@@ -51,6 +51,7 @@
     <Compile Include="Entidades\Salario.cs" />
     <Compile Include="Excepciones\AlumnoInexistenteException.cs" />
     <Compile Include="Excepciones\EmpleadoInexistenteException.cs" />
+    <Compile Include="Excepciones\FechaNacMayorFechaIngresoException.cs" />
     <Compile Include="Excepciones\ListaVaciaException.cs" />
     <Compile Include="Excepciones\NombreInexistenteException.cs" />
     <Compile Include="Excepciones\SalarioNegativoException.cs" />

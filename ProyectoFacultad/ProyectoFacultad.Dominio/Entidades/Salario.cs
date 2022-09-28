@@ -22,7 +22,7 @@ namespace ProyectoFacultad.Dominio.Entidades
             _codigoTransferencia = codigoTransferencia;
             _fecha = DateTime.Now;
             _descuentos = 0.17;
-            _neto = bruto * (1 - _descuentos);
+            _neto = GetSalarioNeto();
         }
 
         //Propiedades
@@ -30,5 +30,13 @@ namespace ProyectoFacultad.Dominio.Entidades
         public string CodigoTransferencia { get => _codigoTransferencia; }
         public double Descuentos { get => _descuentos; }
         public DateTime Fecha { get => _fecha; }
+
+        //Funciones-Métodos
+        public double GetSalarioNeto()
+        {
+            _neto = _bruto * (1 - _descuentos);
+
+            return _neto;
+        }
     }
 }

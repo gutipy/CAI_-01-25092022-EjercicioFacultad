@@ -52,30 +52,50 @@ namespace ProyectoFacultad.Dominio.Entidades
         }
 
         //Método para agregar empleado mediante el pasaje del los inputs
-        public void AgregarEmpleado(int tipoEmpleado, string apellido, DateTime fechaNac, string nombre, DateTime fechaIngreso, int legajo, string apodo)
+        public void AgregarEmpleado(string apellido, DateTime fechaNac, string nombre, DateTime fechaIngreso, int legajo, string apodo)
         {
-            //Valido si el empleado a dar de alta es un Bedel
-            if (tipoEmpleado == 1)
+            if (fechaNac > fechaIngreso)
+            {
+                throw new FechaNacMayorFechaIngresoException(fechaNac, fechaIngreso);
+            }
+            else
             {
                 Empleado b = new Bedel(apellido, fechaNac, nombre, fechaIngreso, legajo, apodo);
 
                 AgregarEmpleado(b);
             }
+        }
 
+        public void AgregarEmpleado(int tipoEmpleado, string apellido, DateTime fechaNac, string nombre, DateTime fechaIngreso, int legajo)
+        {
             //Valido si el empleado a dar de alta es un Docente
-            else if (tipoEmpleado == 2)
+            if (tipoEmpleado == 2)
             {
-                Empleado doc = new Docente(apellido, fechaNac, nombre, fechaIngreso, legajo);
+                if (fechaNac > fechaIngreso)
+                {
+                    throw new FechaNacMayorFechaIngresoException(fechaNac, fechaIngreso);
+                }
+                else
+                {
+                    Empleado doc = new Docente(apellido, fechaNac, nombre, fechaIngreso, legajo);
 
-                AgregarEmpleado(doc);
+                    AgregarEmpleado(doc);
+                }
             }
 
             //Valido si el empleado a dar de alta es un Directivo
             else
             {
-                Empleado dir = new Directivo(apellido, fechaNac, nombre, fechaIngreso, legajo);
+                if (fechaNac > fechaIngreso)
+                {
+                    throw new FechaNacMayorFechaIngresoException(fechaNac, fechaIngreso);
+                }
+                else
+                {
+                    Empleado dir = new Directivo(apellido, fechaNac, nombre, fechaIngreso, legajo);
 
-                AgregarEmpleado(dir);
+                    AgregarEmpleado(dir);
+                }
             }
         }
 
