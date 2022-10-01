@@ -21,6 +21,10 @@ namespace ProyectoFacultad.Dominio.Entidades
             _fechaIngreso = fechaIngreso;
             _legajo = legajo;
             _salarios = new List<Salario>();
+
+            _salarios.Add(new Salario(100000, "ABC123"));
+            _salarios.Add(new Salario(100000, "ABC123"));
+            _salarios.Add(new Salario(100000, "ABC123"));
         }
 
         //Propiedades

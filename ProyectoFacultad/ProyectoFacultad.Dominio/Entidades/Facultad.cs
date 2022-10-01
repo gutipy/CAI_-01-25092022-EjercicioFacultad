@@ -23,6 +23,14 @@ namespace ProyectoFacultad.Dominio.Entidades
             _cantidadSedes = cantidadSedes;
             _empleados = new List<Empleado>();
             _nombre = nombre;
+
+            _alumnos.Add(new Alumno("Somoza", DateTime.Now.AddYears(-20), "Miguel", 850000));
+            _alumnos.Add(new Alumno("Rodriguez", DateTime.Now.AddYears(-22), "Aldana", 799999));
+            _alumnos.Add(new Alumno("Perez", DateTime.Now.AddYears(-24), "Ezequiel", 720000));
+
+            _empleados.Add(new Bedel("Gandolfi", DateTime.Now.AddYears(-44), "Marcela", DateTime.Now.AddYears(-20), 123456, "Cholo"));
+            _empleados.Add(new Docente("Baez", DateTime.Now.AddYears(-30), "Lisandro", DateTime.Now.AddYears(-5), 654321));
+            _empleados.Add(new Directivo("Gorriti", DateTime.Now.AddYears(-57), "Marcela", DateTime.Now.AddYears(-25), 777777));
         }
 
         //Propiedades
@@ -101,7 +109,11 @@ namespace ProyectoFacultad.Dominio.Entidades
 
         public void EliminarAlumno(int codigoAlumno)
         {
-            if (_alumnos.Find(A => A.Codigo == codigoAlumno) == null)
+            if (_alumnos.Count == 0)
+            {
+                throw new ListaVaciaException("Alumnos");
+            }
+            else if (_alumnos.Find(A => A.Codigo == codigoAlumno) == null)
             {
                 throw new AlumnoInexistenteException(codigoAlumno);
             }
@@ -113,7 +125,11 @@ namespace ProyectoFacultad.Dominio.Entidades
 
         public void EliminarEmpleado(int legajoEmpleado)
         {
-            if (_empleados.Find(E => E.Legajo == legajoEmpleado) == null)
+            if(_empleados.Count == 0)
+            {
+                throw new ListaVaciaException("Empleados");
+            }
+            else if (_empleados.Find(E => E.Legajo == legajoEmpleado) == null)
             {
                 throw new EmpleadoInexistenteException(legajoEmpleado);
             }
