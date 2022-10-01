@@ -22,6 +22,7 @@ namespace ProyectoFacultad.Dominio.Entidades
             _legajo = legajo;
             _salarios = new List<Salario>();
 
+            //Pre-cargo algunos casos de ejemplo para 'jugar' con el programa y no tener que realizarlo manualmente cada vez que ejecuto el Programa
             _salarios.Add(new Salario(100000, "ABC123"));
             _salarios.Add(new Salario(100000, "ABC123"));
             _salarios.Add(new Salario(100000, "ABC123"));
@@ -36,8 +37,10 @@ namespace ProyectoFacultad.Dominio.Entidades
         public Salario UltimoSalario { get => _salarios.Last(); }
 
         //Funciones-Métodos
+
         public void AgregarSalario(Salario salario)
         {
+            //Se valida que el salario neto no sea negativo sino se tira una excepción custom
             if ((salario.Bruto - salario.Descuentos) <= 0)
             {
                 throw new SalarioNegativoException(salario);
@@ -76,6 +79,7 @@ namespace ProyectoFacultad.Dominio.Entidades
         //    }
         //}
 
+        //Función que devuelve las credenciales del empleado
         public new string GetCredencial()
         {
             //Declaración de variables
@@ -94,6 +98,7 @@ namespace ProyectoFacultad.Dominio.Entidades
                 ;
         }
 
+        //Función sobreescrita que llama a 'GetCredencial()' para almacenar las credenciales del empleado en una variable y retornarlas al usuario
         public override string ToString()
         {
             //Declaración de variables

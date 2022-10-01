@@ -24,10 +24,12 @@ namespace ProyectoFacultad.Dominio.Entidades
             _empleados = new List<Empleado>();
             _nombre = nombre;
 
+            //Pre-cargo algunos casos de ejemplo para 'jugar' con el programa y no tener que realizarlo manualmente cada vez que ejecuto el Programa
             _alumnos.Add(new Alumno("Somoza", DateTime.Now.AddYears(-20), "Miguel", 850000));
             _alumnos.Add(new Alumno("Rodriguez", DateTime.Now.AddYears(-22), "Aldana", 799999));
             _alumnos.Add(new Alumno("Perez", DateTime.Now.AddYears(-24), "Ezequiel", 720000));
 
+            //Pre-cargo algunos casos de ejemplo para 'jugar' con el programa y no tener que realizarlo manualmente cada vez que ejecuto el Programa
             _empleados.Add(new Bedel("Gandolfi", DateTime.Now.AddYears(-44), "Marcela", DateTime.Now.AddYears(-20), 123456, "Cholo"));
             _empleados.Add(new Docente("Baez", DateTime.Now.AddYears(-30), "Lisandro", DateTime.Now.AddYears(-5), 654321));
             _empleados.Add(new Directivo("Gorriti", DateTime.Now.AddYears(-57), "Marcela", DateTime.Now.AddYears(-25), 777777));
@@ -62,6 +64,7 @@ namespace ProyectoFacultad.Dominio.Entidades
         //Método para agregar empleado mediante el pasaje del los inputs
         public void AgregarEmpleado(string apellido, DateTime fechaNac, string nombre, DateTime fechaIngreso, int legajo, string apodo)
         {
+            //Valido que la fecha de nacimiento no sea mayor a la fecha de ingreso a la facultad sino tiro una excepción custom
             if (fechaNac > fechaIngreso)
             {
                 throw new FechaNacMayorFechaIngresoException(fechaNac, fechaIngreso);
@@ -79,6 +82,7 @@ namespace ProyectoFacultad.Dominio.Entidades
             //Valido si el empleado a dar de alta es un Docente
             if (tipoEmpleado == 2)
             {
+                //Valido que la fecha de nacimiento no sea mayor a la fecha de ingreso a la facultad sino tiro una excepción custom
                 if (fechaNac > fechaIngreso)
                 {
                     throw new FechaNacMayorFechaIngresoException(fechaNac, fechaIngreso);
@@ -94,6 +98,7 @@ namespace ProyectoFacultad.Dominio.Entidades
             //Valido si el empleado a dar de alta es un Directivo
             else
             {
+                //Valido que la fecha de nacimiento no sea mayor a la fecha de ingreso a la facultad sino tiro una excepción custom
                 if (fechaNac > fechaIngreso)
                 {
                     throw new FechaNacMayorFechaIngresoException(fechaNac, fechaIngreso);
@@ -109,10 +114,12 @@ namespace ProyectoFacultad.Dominio.Entidades
 
         public void EliminarAlumno(int codigoAlumno)
         {
+            //Valido que la lista de alumnos no esté vacía sino tiro una excepción custom
             if (_alumnos.Count == 0)
             {
                 throw new ListaVaciaException("Alumnos");
             }
+            //Valido que el código de alumno ingresado corresponda a uno existente en el sistema sino tiro una excepción custom
             else if (_alumnos.Find(A => A.Codigo == codigoAlumno) == null)
             {
                 throw new AlumnoInexistenteException(codigoAlumno);
@@ -125,10 +132,12 @@ namespace ProyectoFacultad.Dominio.Entidades
 
         public void EliminarEmpleado(int legajoEmpleado)
         {
-            if(_empleados.Count == 0)
+            //Valido que la lista de empleados no esté vacía sino tiro una excepción custom
+            if (_empleados.Count == 0)
             {
                 throw new ListaVaciaException("Empleados");
             }
+            //Valido que el legajo de empleado ingresado corresponda a uno existente en el sistema sino tiro una excepción custom
             else if (_empleados.Find(E => E.Legajo == legajoEmpleado) == null)
             {
                 throw new EmpleadoInexistenteException(legajoEmpleado);
@@ -141,10 +150,13 @@ namespace ProyectoFacultad.Dominio.Entidades
 
         public void ModificarEmpleado(Empleado empleadoModificado)
         {
+            //Guardo en una instancia de la clase 'Empleado' el objeto original previo a las modificaciones que realizo el usuario
             Empleado original = _empleados.FirstOrDefault(e => e.Legajo == empleadoModificado.Legajo);
 
+            //Elimino el empleado original previo a las modificaciones
             _empleados.Remove(original);
 
+            //Agrego el empleado modificado
             _empleados.Add(empleadoModificado);
         }
 
@@ -153,11 +165,13 @@ namespace ProyectoFacultad.Dominio.Entidades
             //Declaración de lista
             List<Alumno> _alumnosFacultad = new List<Alumno>();
 
+            //Por cada instancia de 'Alumno' en la lista de _alumnos las agrego a la lista _alumnosFacultad
             foreach (Alumno a in _alumnos)
             {
                 _alumnosFacultad.Add(a);
             }
 
+            //Valido que la lista de alumnos no esté vacía sino tiro una excepción custom
             if (_alumnosFacultad.Count == 0)
             {
                 throw new ListaVaciaException("Alumnos");
@@ -171,14 +185,22 @@ namespace ProyectoFacultad.Dominio.Entidades
             //Declaración de variables
             Empleado empleadoResultado = null;
 
-            foreach (Empleado e in _empleados)
+            //Valido que la lista de empleados no esté vacía sino tiro una excepción custom
+            if (_empleados.Count == 0)
             {
-                if (e.Legajo == legajoEmpleado)
+                throw new ListaVaciaException("Empleados");
+            }
+            else
+            {
+                foreach (Empleado e in _empleados)
                 {
-                    empleadoResultado = e;
+                    if (e.Legajo == legajoEmpleado)
+                    {
+                        empleadoResultado = e;
+                    }
                 }
             }
-
+            
             return empleadoResultado;
         }
 
@@ -192,6 +214,7 @@ namespace ProyectoFacultad.Dominio.Entidades
                 _empleadosFacultad.Add(e);
             }
 
+            //Valido que la lista de alumnos no esté vacía sino tiro una excepción custom
             if (_empleadosFacultad.Count == 0)
             {
                 throw new ListaVaciaException("Empleados");

@@ -109,6 +109,7 @@ namespace ProyectoFacultad.InterfazGrafica
 
             ValidacionesInputHelper.FuncionValidacionOpcionEmpleado(ref _opcionEmpleado);
 
+            //Bloque de código por si el usuario decidió listar a todos los empleados del sistema
             if (_opcionEmpleado == "1")
             {
                 //Declaración de variables
@@ -128,6 +129,8 @@ namespace ProyectoFacultad.InterfazGrafica
                 Console.ReadKey();
                 Console.Clear();
             }
+
+            //Bloque de código por si el usuario decidió listar a todos los empleados por legajo
             else if (_opcionEmpleado == "2")
             {
                 do
@@ -150,6 +153,8 @@ namespace ProyectoFacultad.InterfazGrafica
                 Console.ReadKey();
                 Console.Clear();
             }
+
+            //Bloque de código por si el usuario decidió listar a todos los empleados por 'Nombre'
             else
             {
                 //Declaración de lista
@@ -219,6 +224,7 @@ namespace ProyectoFacultad.InterfazGrafica
                 _flag = ValidacionesInputHelper.FuncionValidacionCodigo(_codigo, ref _codigoValidado, "Código de alumno");
             } while (_flag == false);
 
+            //Se le pasan los inputs validados a la función 'AgregarAlumno' para que agregue el alumno al sistema
             facultad.AgregarAlumno(_apellido, _fechaNacValidada, _nombre, _codigoValidado);
 
             Console.WriteLine("El alumno " + _apellido + " " + _nombre + " fue agregado exitosamente.");
@@ -243,6 +249,7 @@ namespace ProyectoFacultad.InterfazGrafica
 
             } while (_flag == false);
 
+            //Se le pasan los inputs validados a la función 'EliminarAlumno' para que elimine al alumno indicado del sistema
             facultad.EliminarAlumno(_codigoValidado);
 
             Console.WriteLine("El alumno con código " + _codigoValidado + " fue eliminado exitosamente.");
@@ -284,6 +291,7 @@ namespace ProyectoFacultad.InterfazGrafica
 
             } while (_flag == false);
 
+            //Bloque de código por si el usuario decidió agregar al sistema un 'Bedel'
             if (_tipoEmpleadoOpcionValidado == 1)
             {
                 //Pido al usuario que ingrese los datos del Bedel a agregar al sistema
@@ -330,6 +338,7 @@ namespace ProyectoFacultad.InterfazGrafica
                     _flag = ValidacionesInputHelper.FuncionValidacionCadena(ref _apodo, "Apodo");
                 } while (_flag == false);
 
+                //Se le pasan los inputs validados a la función 'AgregarEmpleado' para que agregue al empleado al sistema
                 facultad.AgregarEmpleado(_apellido, _fechaNacValidada, _nombre, _fechaIngresoValidada, _legajoValidado, _apodo);
 
                 Console.WriteLine("El Bedel " + _apellido + " " + _nombre + " fue agregado exitosamente.");
@@ -339,6 +348,7 @@ namespace ProyectoFacultad.InterfazGrafica
                 Console.Clear();
             }
 
+            //Bloque de código por si el usuario decidió agregar al sistema un 'Docente'
             else if (_tipoEmpleadoOpcionValidado == 2)
             {
                 //Pido al usuario que ingrese los datos del Docente a agregar al sistema
@@ -378,6 +388,7 @@ namespace ProyectoFacultad.InterfazGrafica
 
                 } while (_flag == false);
 
+                //Se le pasan los inputs validados a la función 'AgregarEmpleado' para que agregue al empleado al sistema
                 facultad.AgregarEmpleado(_tipoEmpleadoOpcionValidado, _apellido, _fechaIngresoValidada, _nombre, _fechaIngresoValidada, _legajoValidado);
 
                 Console.WriteLine("El Docente " + _apellido + " " + _nombre + " fue agregado exitosamente.");
@@ -387,6 +398,7 @@ namespace ProyectoFacultad.InterfazGrafica
                 Console.Clear();
             }
 
+            //Bloque de código por si el usuario decidió agregar al sistema un 'Directivo'
             else
             {
                 //Pido al usuario que ingrese los datos del Directivo a agregar al sistema
@@ -426,6 +438,7 @@ namespace ProyectoFacultad.InterfazGrafica
 
                 } while (_flag == false);
 
+                //Se le pasan los inputs validados a la función 'AgregarEmpleado' para que agregue al empleado al sistema
                 facultad.AgregarEmpleado(_tipoEmpleadoOpcionValidado, _apellido, _fechaIngresoValidada, _nombre, _fechaIngresoValidada, _legajoValidado);
 
                 Console.WriteLine("El Directivo " + _apellido + " " + _nombre + " fue agregado exitosamente.");
@@ -433,7 +446,6 @@ namespace ProyectoFacultad.InterfazGrafica
                 Console.WriteLine("Presione Enter para elegir otra opción");
                 Console.ReadKey();
                 Console.Clear();
-
             }
         }
 
@@ -460,8 +472,10 @@ namespace ProyectoFacultad.InterfazGrafica
 
             } while (_flag == false);
 
+            //Le asigno al objeto de tipo Empleado los valores que tiene el empleado a ser modificado
             empleadoModif = facultad.TraerEmpleadoPorLegajo(_legajoValidado);
 
+            //Si el objeto que trajo corresponde a un objeto de tipo Bedel ingresa por este flujo
             if (empleadoModif is Bedel)
             {
                 Bedel bedel = (Bedel)empleadoModif;
@@ -511,6 +525,7 @@ namespace ProyectoFacultad.InterfazGrafica
                     )
                     ;
 
+                //Llamo a la función que modifica al empleado con los inputs indicados
                 facultad.ModificarEmpleado(empleadoModif);
 
                 Console.WriteLine("El Bedel con legajo " + _legajoValidado + " fue modificado exitosamente.");
@@ -520,6 +535,7 @@ namespace ProyectoFacultad.InterfazGrafica
                 Console.Clear();
             }
 
+            //Si el objeto que trajo corresponde a un objeto de tipo Docente ingresa por este flujo
             else if (empleadoModif is Docente)
             {
                 Docente docente = (Docente)empleadoModif;
@@ -561,6 +577,7 @@ namespace ProyectoFacultad.InterfazGrafica
                     )
                     ;
 
+                //Llamo a la función que modifica al empleado con los inputs indicados
                 facultad.ModificarEmpleado(empleadoModif);
 
                 Console.WriteLine("El Docente con legajo " + _legajoValidado + " fue modificado exitosamente.");
@@ -570,6 +587,7 @@ namespace ProyectoFacultad.InterfazGrafica
                 Console.Clear();
             }
 
+            //Si el objeto que trajo corresponde a un objeto de tipo Directivo ingresa por este flujo
             else
             {
                 Directivo directivo = (Directivo)empleadoModif;
@@ -611,6 +629,7 @@ namespace ProyectoFacultad.InterfazGrafica
                     )
                     ;
 
+                //Llamo a la función que modifica al empleado con los inputs indicados
                 facultad.ModificarEmpleado(empleadoModif);
 
                 Console.WriteLine("El Directivo con legajo " + _legajoValidado + " fue modificado exitosamente.");
@@ -636,6 +655,7 @@ namespace ProyectoFacultad.InterfazGrafica
 
             } while (_flag == false);
 
+            //Llamo a la función para que elimine al empleado indicado mediante los inputs validados
             facultad.EliminarEmpleado(_legajoValidado);
 
             Console.WriteLine("El Empleado con legajo" + _legajoValidado + " fue eliminado exitosamente.");

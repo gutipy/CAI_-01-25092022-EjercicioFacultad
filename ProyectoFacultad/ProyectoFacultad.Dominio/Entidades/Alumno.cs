@@ -22,6 +22,8 @@ namespace ProyectoFacultad.Dominio.Entidades
         public string Credencial { get => ToString(); }
 
         //Funciones-Metodos
+
+        //Función que devuelve las credenciales del alumno
         public new string GetCredencial()
         {
             return string.Format(
@@ -35,6 +37,7 @@ namespace ProyectoFacultad.Dominio.Entidades
                 ;
         }
 
+        //Función sobreescrita que llama a 'GetCredencial()' para almacenar las credenciales del alumno en una variable y retornarlas al usuario
         public override string ToString()
         {
             //Declaración de variables
