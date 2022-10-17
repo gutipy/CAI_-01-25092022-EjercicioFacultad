@@ -11,9 +11,9 @@ namespace ProyectoFacultad.Dominio.Entidades
     public abstract class Empleado : Persona
     {
         //Atributos
-        protected DateTime _fechaIngreso;
-        protected int _legajo;
-        protected List<Salario> _salarios;
+        private DateTime _fechaIngreso;
+        private int _legajo;
+        private List<Salario> _salarios;
 
         //Constructores
         public Empleado(string apellido, DateTime fechaNac, string nombre, DateTime fechaIngreso, int legajo) : base(apellido, fechaNac, nombre)
@@ -80,7 +80,7 @@ namespace ProyectoFacultad.Dominio.Entidades
         //}
 
         //Función que devuelve las credenciales del empleado
-        public new string GetCredencial()
+        public override string GetCredencial()
         {
             //Declaración de variables
             string _nombreCompleto;
@@ -109,14 +109,6 @@ namespace ProyectoFacultad.Dominio.Entidades
             return resultado;
         }
 
-        public new string GetNombreCompleto()
-        {
-            //Declaración de variables
-            string nombreCompleto;
-
-            nombreCompleto = Nombre + " " + Apellido;
-
-            return nombreCompleto;
-        }
+        public abstract override string GetNombreCompleto();
     }
 }

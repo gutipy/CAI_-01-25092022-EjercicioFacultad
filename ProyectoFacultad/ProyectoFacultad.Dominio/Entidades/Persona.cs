@@ -28,7 +28,7 @@ namespace ProyectoFacultad.Dominio
         public DateTime FechaNac { get => _fechaNac; }
 
         //Funciones-Métodos
-        public string GetCredencial()
+        public virtual string GetCredencial()
         {
             return string.Format(
                 "Apellido: {0}" + Environment.NewLine +
@@ -43,14 +43,6 @@ namespace ProyectoFacultad.Dominio
                 ;
         }
 
-        public string GetNombreCompleto()
-        {
-            //Declaración de variables
-            string nombreCompleto;
-
-            nombreCompleto = Nombre + " " + Apellido;
-
-            return nombreCompleto;
-        }
+        public abstract string GetNombreCompleto();
     }
 }

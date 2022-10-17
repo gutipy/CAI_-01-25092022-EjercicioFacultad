@@ -21,7 +21,7 @@ namespace ProyectoFacultad.Dominio.Entidades
         public string Apodo { get => _apodo; }
 
         //Funciones-Métodos
-        public new string GetNombreCompleto()
+        public override string GetNombreCompleto()
         {
             //Declaración de variables
             string nombreCompleto;

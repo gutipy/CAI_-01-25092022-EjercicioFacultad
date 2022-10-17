@@ -24,7 +24,7 @@ namespace ProyectoFacultad.Dominio.Entidades
         //Funciones-Metodos
 
         //Función que devuelve las credenciales del alumno
-        public new string GetCredencial()
+        public override string GetCredencial()
         {
             return string.Format(
                 "Código: {0}" + Environment.NewLine +
@@ -46,6 +46,16 @@ namespace ProyectoFacultad.Dominio.Entidades
             resultado = GetCredencial();
 
             return resultado;
+        }
+
+        public override string GetNombreCompleto()
+        {
+            //Declaración de variables
+            string nombreCompleto;
+
+            nombreCompleto = "Alumno: " + Nombre + " " + Apellido;
+
+            return nombreCompleto;
         }
     }
 }

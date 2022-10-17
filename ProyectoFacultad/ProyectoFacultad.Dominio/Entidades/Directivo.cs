@@ -19,7 +19,7 @@ namespace ProyectoFacultad.Dominio.Entidades
         //Propiedades
 
         //Funciones-Métodos
-        public new string GetNombreCompleto()
+        public override string GetNombreCompleto()
         {
             //Declaración de variables
             string nombreCompleto;
