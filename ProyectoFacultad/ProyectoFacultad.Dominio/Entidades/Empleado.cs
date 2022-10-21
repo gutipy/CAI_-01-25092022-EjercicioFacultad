@@ -61,7 +61,7 @@ namespace ProyectoFacultad.Dominio.Entidades
         //    {
         //        Empleado emp = (Empleado)obj;
 
-        //        foreach(Facultad e in _empleados)
+        //        foreach(Empleado e in _empleados)
         //        {
         //            if (e.Legajo == emp.Legajo)
         //            {
